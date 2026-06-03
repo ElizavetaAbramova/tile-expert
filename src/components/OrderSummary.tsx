@@ -1,30 +1,8 @@
-import type { Item } from "../types/Item";
 import { Input } from "./Input";
 import { OrderTotal } from "./OrderTotal";
 import { TextArea } from "./TextArea";
 
-const itemsInCart: Item[] = [
-  {
-    id: "1",
-    collection: "Collection 1",
-    itemImage: "Tile 1",
-    quantity: 1,
-    unitPrice: 10.0,
-  },
-];
-
-const cart = {
-  id: "cart1",
-  items: itemsInCart,
-  subtotal: 0,
-  shipping: 25, //or 25 if total < 500
-  grandTotal: 0,
-};
-
 export const OrderSummary = () => {
-  //cart from store
-  const { subtotal, shipping, grandTotal } = cart;
-
   return (
     <div className="order-summary max-w-[300px] flex flex-col items-end">
       <div className="title bg-parchment-200 flex w-full rounded-t-sm">
@@ -42,11 +20,7 @@ export const OrderSummary = () => {
         <Input name="shipping-address" type="text" label="shipping address :" />
         <TextArea name="notes" rows={3} cols={50} label="projects Notes :" />
       </div>
-      <OrderTotal
-        subtotal={subtotal}
-        shipping={shipping}
-        grandTotal={grandTotal}
-      />
+      <OrderTotal />
     </div>
   );
 };
