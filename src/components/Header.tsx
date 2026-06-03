@@ -1,13 +1,16 @@
 import { useIsMobile } from "../hooks/useIsMobile";
 import type { NavLink } from "../types/NavLink";
 import { Link } from "./Link";
+import { CartBadge } from "./CartBadge";
+import { UserBadge } from "./UserBadge";
+import { useAppSelector } from "../store/hooks";
 
 interface HeaderProps {
   navigationLinks: NavLink[];
-  children?: React.ReactNode;
 }
 
-export const Header = ({ navigationLinks, children }: HeaderProps) => {
+export const Header = ({ navigationLinks }: HeaderProps) => {
+  const { name, surname } = useAppSelector((state) => state.user);
   const isMobile = useIsMobile();
   const formattedLinks = isMobile
     ? navigationLinks.slice(0, 3)
@@ -26,7 +29,10 @@ export const Header = ({ navigationLinks, children }: HeaderProps) => {
           <Link key={href} href={href} label={label} />
         ))}
       </nav>
-      {children}
+      <div className="flex gap-5">
+        <CartBadge />
+        <UserBadge name={name} surname={surname} />
+      </div>
     </header>
   );
 };

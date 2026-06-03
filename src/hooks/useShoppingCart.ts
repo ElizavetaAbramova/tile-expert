@@ -1,18 +1,29 @@
-import { useEffect, useState } from "react";
+import { useAppDispatch } from "../store/hooks";
+import {
+  addItem,
+  removeItem,
+  clearCart,
+  updateQuantity,
+} from "../store/shoppingCart";
 
-export const useShoppingCart = () => {
-  const [items, setItems] = useState([]);
+import type { Item } from "../types/Item";
 
-  useEffect(() => {
-    const storedItems = localStorage.getItem("shoppingCart");
-    if (storedItems) {
-      // setItems(JSON.parse(storedItems));
-    }
-  }, []);
+export const useCart = () => {
+  const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    localStorage.setItem("shoppingCart", JSON.stringify(items));
-  }, [items]);
+  return {
+    addToCart: (item: Item) => dispatch(addItem(item)),
 
-  return { items, setItems };
+    removeFromCart: (id: string) => dispatch(removeItem(id)),
+
+    changeQuantity: (id: string, quantity: number) =>
+      dispatch(
+        updateQuantity({
+          id,
+          quantity,
+        }),
+      ),
+
+    clearCart: () => dispatch(clearCart()),
+  };
 };

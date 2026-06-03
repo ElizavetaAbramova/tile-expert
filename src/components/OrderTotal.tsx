@@ -1,14 +1,9 @@
-interface OrderTotalProps {
-  subtotal: number;
-  shipping: number;
-  grandTotal: number;
-}
+import { useAppSelector } from "../store/hooks";
 
-export const OrderTotal = ({
-  subtotal,
-  shipping,
-  grandTotal,
-}: OrderTotalProps) => {
+export const OrderTotal = () => {
+  const cart = useAppSelector((state) => state.cart);
+  const { subtotal, shipping, grandTotal } = cart;
+
   return (
     <div className="font-heading text-md grid gap-x-1 grid-cols-2 text-end items-center">
       <p>Subtotal: </p>

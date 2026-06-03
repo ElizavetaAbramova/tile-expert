@@ -1,21 +1,32 @@
-import type { Cart } from "../types/Cart";
-import { type Item } from "../types/Item";
+import type { ChangeEvent } from "react";
+import { TILE_OPTIONS } from "../constants/TileOptions";
+import { useCart } from "../hooks/useShoppingCart";
+import { useAppSelector } from "../store/hooks";
 import { OrderTotal } from "./OrderTotal";
 
-interface ShoppingToolProps {
-  cart: Cart;
-  options: Item[];
-  onSelect: (item?: Item) => void;
-}
-
-export const ShoppingTool = ({
-  cart,
-  options,
-  onSelect,
-}: ShoppingToolProps) => {
+export const ShoppingTool = () => {
+  const cart = useAppSelector((state) => state.cart);
   const itemsInCart = cart.items;
-  const { subtotal, shipping, grandTotal } = cart;
-  //or here onSelect, add and delete
+
+  const { addToCart, removeFromCart, changeQuantity } = useCart();
+
+  const onSelectHandler = (event: ChangeEvent<HTMLSelectElement>) => {
+    const item = TILE_OPTIONS.find((o) => o.id === event.target.value);
+    if (!item) return;
+    addToCart(item);
+  };
+
+  const onDelete = (id: string) => {
+    removeFromCart(id);
+  };
+
+  const onAdd = (id: string) => {
+    const item = cart.items.find((itemInCart) => itemInCart.id === id);
+
+    if (!item) return;
+
+    changeQuantity(id, item.quantity + 1);
+  };
 
   return (
     <div className="shopping-cart flex flex-col md:max-w-[350px]">
@@ -53,14 +64,14 @@ export const ShoppingTool = ({
                 </td>
                 <td className="border-ink-400">
                   <div className=" flex-1 flex gap-2 justify-center items-center">
-                    <button>
+                    <button onClick={() => onAdd(item.id)}>
                       <img
                         src="/src/assets/add-icon.png"
                         alt="Add"
                         className="h-5 w-5"
                       />
                     </button>
-                    <button>
+                    <button onClick={() => onDelete(item.id)}>
                       <img
                         src="/src/assets/remove-icon.png"
                         alt="Remove"
@@ -81,25 +92,19 @@ export const ShoppingTool = ({
           className="mt-2 h-10 w-14 md:block hidden"
         />
         <select
-          onChange={(e) =>
-            onSelect(options.find((o) => o.id === e.target.value))
-          }
+          onChange={onSelectHandler}
           className="bg-parchment-200 rounded-md border-2 mt-2 px-1 max-w-[120px] text-sm"
         >
           <option value="" className="">
             Add tile in card
           </option>
-          {options.map((option) => (
+          {TILE_OPTIONS.map((option) => (
             <option key={option.id} value={option.id}>
               {option.collection} - {option.itemImage}
             </option>
           ))}
         </select>
-        <OrderTotal
-          subtotal={subtotal}
-          shipping={shipping}
-          grandTotal={grandTotal}
-        />
+        <OrderTotal />
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import type { Item } from "./Item";
 
-export type Cart = {
+export type ShoppingCart = {
   id: string;
   items: Item[];
   subtotal: number;

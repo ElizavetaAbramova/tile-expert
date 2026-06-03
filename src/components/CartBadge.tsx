@@ -1,6 +1,4 @@
-interface CartBadgeProps {
-  amountOfItems: number;
-}
+import { useAppSelector } from "../store/hooks";
 
 const CartBadgeSize = {
   Small: "h-4 w-4 text-[12px]",
@@ -17,7 +15,9 @@ const getBadgeSize = (
   return CartBadgeSize.Large;
 };
 
-export const CartBadge = ({ amountOfItems }: CartBadgeProps) => {
+export const CartBadge = () => {
+  const items = useAppSelector((state) => state.cart.items);
+  const amountOfItems = items.reduce((sum, item) => sum + item.quantity, 0);
   const sizeClass = getBadgeSize(amountOfItems);
 
   return (
