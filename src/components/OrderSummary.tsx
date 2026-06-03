@@ -12,12 +12,22 @@ export const OrderSummary = () => {
         <div className="flex-1 rounded-bl-sm border-b-2 border-l-2 mt-1 ml-[-1px]"></div>
       </div>
       <div className="order-info flex flex-col gap-1 w-full">
-        <Input name="name" type="text" label="Customer Name :" />
+        <Input
+          name="name"
+          type="text"
+          label="Customer Name :"
+          isRequired={true}
+        />
         <div className="flex">
-          <Input name="phone" type="text" label="phone :" />
-          <Input name="email" type="text" label="email :" />
+          <Input name="phone" type="text" label="phone :" isRequired={true} />
+          <Input name="email" type="email" label="email :" isRequired={true} />
         </div>
-        <Input name="shipping-address" type="text" label="shipping address :" />
+        <Input
+          name="shipping-address"
+          type="text"
+          label="shipping address :"
+          isRequired={true}
+        />
         <TextArea name="notes" rows={3} cols={50} label="projects Notes :" />
       </div>
       <OrderTotal />

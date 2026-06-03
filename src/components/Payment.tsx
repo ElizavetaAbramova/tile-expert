@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { RadioInput } from "./RadioInput";
+import { CardPaymentDetails } from "./CardPaymentDetails";
 
 export const Payment = () => {
   const [selectedMethod, setSelectedMethod] = useState<"card" | "paypal">(
@@ -39,35 +40,10 @@ export const Payment = () => {
             className="bg-parchment-200 flex flex-col gap-2 items-start p-2 border-2 rounded-md"
             onClick={() => setCardMethod("bankcard")}
           >
-            <div className="flex gap-2 items-center">
-              <RadioInput
-                value="bankcard"
-                name="payment-method"
-                label=""
-                checked={cardMethod === "bankcard"}
-                onSelect={() => setCardMethod("bankcard")}
-              />
-              <div className="bg-ceramic-50 rounded-md border-2 w-12 p-1 h-8 flex items-center">
-                <img src="/src/assets/visa.png" className="" />
-              </div>
-              <div className="bg-ceramic-50 rounded-md border-2 w-12 h-8 p-1 flex items-center">
-                <img src="/src/assets/mastercard.svg" className="" />
-              </div>
-            </div>
-            <input
-              placeholder="enter card number"
-              className="bg-parchment-100 border-2 rounded-md uppercase px-1 text-sm w-full"
-            ></input>
-            <div className="w-full flex gap-2">
-              <input
-                placeholder="date of expiration"
-                className="bg-parchment-100 border-2 rounded-md uppercase px-1 text-sm flex-1"
-              ></input>
-              <input
-                placeholder="CVV"
-                className="bg-parchment-100 border-2 rounded-md uppercase px-1 text-sm flex-1"
-              ></input>
-            </div>
+            <CardPaymentDetails
+              checked={cardMethod === "bankcard"}
+              onSelect={() => setCardMethod("bankcard")}
+            />
           </div>
 
           <div className="flex gap-2">

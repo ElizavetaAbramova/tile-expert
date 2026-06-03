@@ -45,7 +45,7 @@ const calculateTotals = (cart: ShoppingCart) => {
 const cartSlice = createSlice({
   name: "cart",
 
-  initialState: defaultCart,
+  initialState: loadCart() || defaultCart,
 
   reducers: {
     initializeCart: (_, action: PayloadAction<ShoppingCart>) => {
