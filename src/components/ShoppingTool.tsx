@@ -55,7 +55,7 @@ export const ShoppingTool = () => {
           </thead>
           <tbody className="text-center">
             {itemsInCart.map((item) => (
-              <tr key={item.id}>
+              <tr key={`${item.id}-${item.collection}`}>
                 <td className="border-r  border-ink-400 ">{item.collection}</td>
                 <td className="border-r  border-ink-400 ">{item.itemImage}</td>
                 <td className="border-r  border-ink-400 ">[{item.quantity}]</td>
@@ -99,7 +99,7 @@ export const ShoppingTool = () => {
             Add tile in card
           </option>
           {TILE_OPTIONS.map((option) => (
-            <option key={option.id} value={option.id}>
+            <option key={`${option.id}-${option.collection}`} value={option.id}>
               {option.collection} - {option.itemImage}
             </option>
           ))}

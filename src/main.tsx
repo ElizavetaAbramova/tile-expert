@@ -8,6 +8,7 @@ import { Main } from "./pages/Main.tsx";
 import { Provider } from "react-redux";
 import { store } from "./store/store.ts";
 import { saveCart } from "./store/shoppingCart.ts";
+import { saveGrid } from "./store/designerGrid.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -26,4 +27,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
 store.subscribe(() => {
   saveCart(store.getState().cart);
+
+  saveGrid(store.getState().designer.grid);
 });
