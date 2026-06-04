@@ -3,3 +3,22 @@
 @import "tailwindcss";
 
 @config '../tailwind.config.js';
+
+.scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #8b7355 transparent;
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #8b7355;
+  border-radius: 999px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}

@@ -13,7 +13,7 @@ export const Link = ({ href, label, separator }: LinkProps) => {
     <a
       key={label}
       href={href}
-      className={`font-heading md:hover:text-terracotta-600 transition-colors duration-300 text-xs md:text-md ${separatorClass}`}
+      className={`font-heading md:hover:text-terracotta-600 transition-colors duration-300 text-xs md:text-xl ${separatorClass}`}
     >
       {label.toUpperCase()}
     </a>

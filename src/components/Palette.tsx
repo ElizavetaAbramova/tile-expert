@@ -12,7 +12,7 @@ type PaletteTileProps = {
 
 export const Palette = ({ tiles }: PaletteProps) => {
   return (
-    <div className="flex flex-wrap p-2 gap-2">
+    <div className="flex flex-wrap p-2 gap-2 justify-center">
       {tiles.map((tile) => (
         <PaletteTitle image={tile.imageUrl} key={tile.id} id={tile.id} />
       ))}

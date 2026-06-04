@@ -1,6 +1,6 @@
 import { useDroppable } from "@dnd-kit/core";
-import { tileMap } from "../constants/tileMap";
 import { motion } from "framer-motion";
+import { TILE_MAP } from "../constants/DesignPalette";
 
 interface GridCellProps {
   row: number;
@@ -26,7 +26,7 @@ export const GridCell = ({ row, col, tileId }: GridCellProps) => {
     >
       {tileId && (
         <motion.img
-          src={tileMap[tileId]}
+          src={TILE_MAP[tileId]}
           className="w-full h-full object-cover"
           initial={{
             scale: 0.8,

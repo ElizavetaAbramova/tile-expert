@@ -1,39 +1,65 @@
 import { useIsMobile } from "../hooks/useIsMobile";
+import titleImageLeft from "/src/assets/title-1.png";
+import titleImageRight from "/src/assets/title-2.png";
+import tileImage1 from "/src/assets/var1.png";
+import tileImage2 from "/src/assets/var2.png";
+import tileImage3 from "/src/assets/var3.png";
+import tileImage4 from "/src/assets/var4.png";
+import tileImage5 from "/src/assets/var5.png";
+import tileImage6 from "/src/assets/var6.png";
 
 export const OrderPageTitle = () => {
   const isMobile = useIsMobile();
 
   return (
-    <div className="flex gap-6 items-center">
+    <div className="flex gap-6 items-center z-10">
       {!isMobile && (
-        <img
-          src="/src/assets/temple_2.png"
-          alt="temple"
-          className="w-17 h-17"
-        />
+        <img src={titleImageLeft} alt="temple" className="w-17 h-17" />
       )}
       <div className="title font-heading tracking-wider text-center flex flex-col gap-1">
-        <h1 className="text-2xl font-bold">CERAMIC TILE ORDER FORM</h1>
-        <div className="flex justify-between gap-4">
-          <div className="flex gap-1">
-            <img src="/src/assets/var1.png" alt="tile" className="w-5 h-5" />
-            <img src="/src/assets/var2.png" alt="tile" className="w-5 h-5" />
-            <img src="/src/assets/var3.png" alt="tile" className="w-5 h-5" />
+        <h1 className="text-lg md:text-4xl font-bold">
+          CERAMIC TILE ORDER FORM
+        </h1>
+        <div className="flex justify-between gap-2 md:gap-4 items-center">
+          <div className="flex gap-1 md:gap-2">
+            <img
+              src={tileImage1}
+              alt="tile"
+              className="w-4 h-4 md:w-7 md:h-7"
+            />
+            <img
+              src={tileImage2}
+              alt="tile"
+              className="w-4 h-4 md:w-7 md:h-7"
+            />
+            <img
+              src={tileImage3}
+              alt="tile"
+              className="w-4 h-4 md:w-7 md:h-7"
+            />
           </div>
-          <h3 className="text-sm">THE ARTISAN KILN</h3>
-          <div className="flex gap-1">
-            <img src="/src/assets/var4.png" alt="tile" className="w-5 h-5" />
-            <img src="/src/assets/var5.png" alt="tile" className="w-5 h-5" />
-            <img src="/src/assets/var6.png" alt="tile" className="w-5 h-5" />
+          <h3 className="text-sm md:text-2xl">THE ARTISAN KILN</h3>
+          <div className="flex gap-1 md:gap-2">
+            <img
+              src={tileImage4}
+              alt="tile"
+              className="w-4 h-4 md:w-7 md:h-7"
+            />
+            <img
+              src={tileImage5}
+              alt="tile"
+              className="w-4 h-4 md:w-7 md:h-7"
+            />
+            <img
+              src={tileImage6}
+              alt="tile"
+              className="w-4 h-4 md:w-7 md:h-7"
+            />
           </div>
         </div>
       </div>
       {!isMobile && (
-        <img
-          src="/src/assets/fireplace.png"
-          alt="temple"
-          className="w-20 h-20"
-        />
+        <img src={titleImageRight} alt="temple" className="w-17 h-17" />
       )}
     </div>
   );
