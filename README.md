@@ -6,9 +6,12 @@ Frontend implementation of an interactive ceramic tile ordering form based on th
 
 **Live Demo:** [Add Demo URL]
 
+![Main Page](<tile (1).png>)
+![Design Builder](<tile (2).png>)
+
 ## Repository
 
-**GitHub:** [Add Repository URL]
+**GitHub:** [https://github.com/ElizavetaAbramova/tile-expert]
 
 ---
 
@@ -162,6 +165,7 @@ Application state persists between browser sessions.
 Stored entities:
 
 - Shopping Cart
+- Pattern in Design Builder
 
 On application startup:
 
@@ -270,6 +274,7 @@ The visual style follows the provided mockups:
 - Backend integration
 - Order submission API
 - Authentication and user accounts
+- Clearing Pattern field
 
 ---
 
