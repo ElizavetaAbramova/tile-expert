@@ -1,3 +1,5 @@
+import UserIcon from "/src/assets/user.png";
+
 interface UserBadgeProps {
   name: string;
   surname: string;
@@ -14,7 +16,7 @@ export const UserBadge = ({
   return (
     <div className="flex justify-between items-center gap-2">
       <img
-        src={userPictureUrl ?? "src/assets/user.png"}
+        src={userPictureUrl ?? UserIcon}
         alt="user picture"
         className="h-4 md:h-7 bg-ceramic-300 rounded-full "
       />

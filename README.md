@@ -4,7 +4,7 @@ Frontend implementation of an interactive ceramic tile ordering form based on th
 
 ## Demo
 
-**Live Demo:** [Add Demo URL]
+**Live Demo:** [https://tile-expert-testing.netlify.app/]
 
 ![Main Page](<tile (1).png>)
 ![Design Builder](<tile (2).png>)

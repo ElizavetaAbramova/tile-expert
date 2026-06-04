@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { RadioInput } from "./RadioInput";
 import { CardPaymentDetails } from "./CardPaymentDetails";
+import BankIcon from "/src/assets/bank.png";
+import ApplePay from "/src/assets/apple-pay.png";
 
 export const Payment = () => {
   const [selectedMethod, setSelectedMethod] = useState<"card" | "paypal">(
@@ -59,7 +61,7 @@ export const Payment = () => {
                 onSelect={() => setCardMethod("applepay")}
               />
               <div className="w-full flex flex-col items-center">
-                <img src="/src/assets/apple-pay.png" className="w-8" />
+                <img src={ApplePay} className="w-8" />
                 <p className="text-sm">Apple Pay</p>
               </div>
             </div>
@@ -75,7 +77,7 @@ export const Payment = () => {
                 onSelect={() => setCardMethod("transfer")}
               />
               <div className="w-full flex flex-col items-center">
-                <img src="/src/assets/bank.png" className="w-8" />
+                <img src={BankIcon} className="w-8" />
                 <p className="text-sm">Bank Transfer</p>
               </div>
             </div>

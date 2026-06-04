@@ -1,4 +1,5 @@
 import { useAppSelector } from "../store/hooks";
+import ShoppingCartIcon from "/src/assets/shopping-cart.png";
 
 const CartBadgeSize = {
   Small: "h-4 w-4 text-[12px]",
@@ -24,7 +25,7 @@ export const CartBadge = () => {
     <div className="flex items-center py-1">
       <div className="relative inline-block">
         <img
-          src="src/assets/shopping-cart.png"
+          src={ShoppingCartIcon}
           alt="shopping cart"
           className="h-5 md:h-6"
         />
